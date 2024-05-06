@@ -9,8 +9,10 @@ def pierwiastek(x, epsilon=0.1, guess=1.0):
         return guess
     else:
         return pierwiastek(x, epsilon, (guess + x / guess) / 2)
+    
 def make_alpha_dict(s):
     words = s.split()
+    #dla posortowanego zbioru znaków z napisu s zwraca słownik w którym kluczem jest znak a wartością lista słów, w których ten znak występuje
     return {char: list(filter(lambda word: char in word, words)) for char in sorted(set(s)) if char.isalpha()}
 def flatten(lst):
     for x in lst:
