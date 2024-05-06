@@ -37,11 +37,11 @@ for _ in range(10):
 fib_gen = make_generator_mem(fibonacci)
 for _ in range(10):
     print(next(fib_gen))
-@log(logging.INFO)
+@log(logging.WARNING)
 def add(x, y):
     return x + y
 
-@log(logging.INFO)
+@log(logging.WARNING)
 class MyClass:
     def __init__(self, x):
         self.x = x
