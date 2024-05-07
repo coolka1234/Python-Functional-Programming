@@ -22,6 +22,13 @@ def fibonacci(n):
         for _ in range(n - 2):
             a, b = b, a + b
         return b
+def recursive_fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return recursive_fibonacci(n-1) + recursive_fibonacci(n-2)
 
 fib_gen = make_generator(fibonacci)
 for _ in range(10):
@@ -30,11 +37,12 @@ for _ in range(10):
 arith_gen = make_generator(lambda x: 2 * x)
 for _ in range(10):
     print(next(arith_gen))
-
+print("Normal generator")
 geom_gen = make_generator(lambda x: 2 ** x)
 for _ in range(10):
     print(next(geom_gen))
-fib_gen = make_generator_mem(fibonacci)
+print("Memoized")
+fib_gen = make_generator_mem(recursive_fibonacci)
 for _ in range(10):
     print(next(fib_gen))
 @log(logging.WARNING)
